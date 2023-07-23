@@ -186,6 +186,7 @@ li {
 .portfolyo {
   background-color: #1F221E;
   text-align: center;
+  padding: 2rem;
 }
 .portfolyo .portfolyoTitle {
   font-size: 3rem;
@@ -203,99 +204,96 @@ a {
 }
 
 .cards-wrapper {
-  display: grid;
-  justify-content: center;
+  display: flex;
   align-items: center;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-gap: 4rem;
-  padding: 4rem;
-  margin: 0 auto;
-  width: -moz-max-content;
-  width: max-content;
+  justify-content: space-evenly;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 .cards-wrapper .card {
-  font-family: "Heebo";
-  --bg-filter-opacity: 0.5;
-  background-image: linear-gradient(rgba(0, 0, 0, var(--bg-filter-opacity)), rgba(0, 0, 0, var(--bg-filter-opacity))), var(--bg-img);
-  height: 20em;
-  width: 15em;
-  font-size: 1.5em;
-  color: white;
-  border-radius: 1em;
-  padding: 1em;
-  display: flex;
-  align-items: flex-end;
-  background-size: cover;
-  background-position: center;
-  box-shadow: 0 0 5em -1em black;
-  transition: all, var(--transition-time);
   position: relative;
+  width: 500px;
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 8px;
+  color: white;
+  padding: 16px;
+  border: 1px solid #232323;
+  transition: all 0.5s ease-in-out;
   overflow: hidden;
-  border: 10px solid #ccc;
-  text-decoration: none;
+  transition: all 0.1s ease-in-out;
+  /*Hovers*/
+  /*Text*/
+  /*Button*/
 }
-.cards-wrapper .card:hover {
-  transform: rotate(0);
-}
-.cards-wrapper .card h1 {
-  margin: 0;
-  font-size: 1.5em;
-  line-height: 1.2em;
-}
-.cards-wrapper .card p {
-  font-size: 0.75em;
-  font-family: "Open Sans";
-  margin-top: 0.5em;
-  line-height: 2em;
-}
-.cards-wrapper .card .tags {
+.cards-wrapper .card-hidden {
   display: flex;
+  transform: translateY(200%);
+  flex-direction: column;
+  gap: 1.5rem;
+  transition: transform 0.5s ease-in, opacity 0.3s ease-in;
+  opacity: 0;
 }
-.cards-wrapper .card .tags .tag {
-  font-size: 0.75em;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 0.3rem;
-  padding: 0 0.5em;
-  margin-right: 0.5em;
-  line-height: 1.5em;
-  transition: all, var(--transition-time);
-}
-.cards-wrapper .card:hover h1, .cards-wrapper .card:hover p {
-  color: black;
-  transition: all, var(--transition-time);
-  transition-timing-function: ease-in-out;
-}
-.cards-wrapper .card:hover .tags .tag {
-  background: var(--color);
-  color: rgb(255, 255, 255);
-}
-.cards-wrapper .card:before, .cards-wrapper .card:after {
-  content: "";
-  transform: scale(0);
-  transform-origin: top left;
-  border-radius: 50%;
+.cards-wrapper .card-border {
   position: absolute;
-  left: -50%;
-  top: -50%;
-  z-index: -5;
-  transition: all, var(--transition-time);
-  transition-timing-function: ease-in-out;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  border: 1px dashed #232323;
+  border-radius: 8px;
+  z-index: -1;
 }
-.cards-wrapper .card:before {
-  background: #ddd;
-  width: 250%;
-  height: 250%;
-}
-.cards-wrapper .card:after {
-  background: rgb(255, 255, 255);
-  width: 200%;
-  height: 200%;
+.cards-wrapper .card .title {
+  background-color: #53aed4;
+  padding: 5px 10px;
+  border-radius: 20px;
 }
 .cards-wrapper .card:hover {
-  color: var(--color);
+  border-color: #fefefe;
+  background: rgb(59, 48, 66);
+  background: linear-gradient(90deg, rgb(59, 48, 66) 18%, rgba(55, 61, 85, 0.8995973389) 44%, rgb(61, 60, 60) 81%) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.cards-wrapper .card:hover:before, .cards-wrapper .card:hover:after {
-  transform: scale(1);
+.cards-wrapper .card:hover .card-hidden {
+  transform: translateY(0);
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cards-wrapper .card:hover .title {
+  transform: translateY(200%);
+}
+.cards-wrapper .card .title {
+  position: absolute;
+  bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: transform 0.25s ease-out;
+}
+.cards-wrapper .card .title-in {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+.cards-wrapper .card .button {
+  display: inline-flex;
+  width: -moz-max-content;
+  width: max-content;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 24px;
+  font-weight: 600;
+  background-color: #5bc0eb;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+.cards-wrapper .card .button:hover {
+  background-color: #53aed4;
 }
 .cards-wrapper.card-grid-space .num {
   font-size: 3em;

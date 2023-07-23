@@ -1,19 +1,15 @@
 import React from 'react';
 
-const Card = ({ href, bgImg, title, description, tags }) => (
-  <div className="card-grid-space">
-    <a className="card"  href={href} target='_blank' style={{ '--bg-img': `url(${bgImg})` }}>
-      <div>
-        <h1>{title}</h1>
-        <p>{description}</p>
-        <div className="tags">
-          {tags.map((tag, index) => (
-            <div className="tag" key={index}>{tag}</div>
-          ))}
-        </div>
-      </div>
-    </a>
+const Card = ({ href, backgroundImage, title, description, tags }) => (
+  <><div className="card" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <p className="title">{title}</p>
+    <div className="card-hidden">
+      <p className="title-in">{title}</p>
+      <p>{description}</p>
+      <a className="button" href={href}>{tags}</a>
+    </div>
   </div>
+  <div className="card-border"></div></>
 );
 
 export default Card;
